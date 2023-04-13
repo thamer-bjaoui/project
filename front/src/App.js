@@ -6,16 +6,19 @@ import UserInterface from './Component/UserInterface';
 import Add from './Component/Add';
 import Update from './Component/Update';
 import Home from './Component/home/Home';
+import Card from './Component/Card';
 import Signup from './Component/Signup/Signup';
 import Login from './Component/Login/Login';
 import Search from './Component/Search';
 import './App.css';
+
 import { auth } from "./firebase";
 function App() {
  const [product,setProduct]= useState([]);
  const[toggle,setToggle]= useState(false);
  const [userName, setUserName] = useState("");
  const [productfiltred,setProductFiltred ] = useState("")
+ const[Cardprod,setCardprod]=useState([])
 //  const [handelfilter,setHandelfilter] = useState(false)
  const handelToggle=()=>{
   setToggle(!toggle)
@@ -53,13 +56,17 @@ function App() {
     });
     setProduct(productfilt)
   };
-  
+  const hadlecard=(prod)=>{
+    setCardprod(prod)
+  }
 
   return (
    <div>
     <div>
     <div className='nav'> 
-         <a href='/home' className="logo" >ADMIN</a>
+    <a href='/home' className="logo" >home</a>
+         <a href='/signup' className="logo" >Signup</a>
+         <a href='/login' className="logo" >login</a>
          
            <Search  search={handelSubmit} handelsearch={handleSearch}/>
         </div>
@@ -68,12 +75,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/adminSpace" element={<AdminInterface handeltoggle={handelToggle} prod={product} />} />
-          <Route path="/" element={<UserInterface product={product}/>} />
+          {/* <Route path="/" element={<UserInterface handle={hadlecard} product={product}/>} /> */}
           <Route path="/add" element={<Add handeltoggle={handelToggle}/>} />
           <Route path="/update/:id" element={<Update  handeltoggle={handelToggle}/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/home" element={<Home name={userName} />} />
+          <Route path="/" element={<Card data={Cardprod} />} />
+          <Route path="/home" element={<Home handle={hadlecard} name={userName} prod={product} />} />
         </Routes>
 
       </BrowserRouter>

@@ -25,7 +25,7 @@ const navigate=useNavigate()
           <div key={e.id} className="product">
             <img  className='img' src={e.imageUrl} alt="img" />
             <h2>{e.name}</h2>
-            <p>{e.description}</p>
+           
             <span>${e.price}</span>
             <button className="delete" onClick={() => handleDelete(e.id)}>Delete</button>
             <button className="update">

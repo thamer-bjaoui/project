@@ -4,8 +4,10 @@ const Search = ({search ,  handelsearch}) => {
  
     return (
         <form onSubmit={(e)=>{search(e)}} className='searchForm'>
-            <input onChange={(e)=>{handelsearch(e)}} type="text" className='search' placeholder="looking for ..."  />
-            <button  className='searchButton' type='submit' >&#x1F50E;</button>
+            <div style={{display: 'flex'}}>
+            <input onChange={(e)=>{handelsearch(e)}} type="text" className='search' placeholder="looking for ..."  /> 
+            <button  className='searchButton' type='submit' > search</button>
+            </div>
         </form>
         // <div className='box'>
             

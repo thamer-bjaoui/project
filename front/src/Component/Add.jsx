@@ -30,8 +30,10 @@ const Add = ({handeltoggle}) => {
 
 
   return (
-    <div className="form">
+    <div className="forme">
+      <ul>
       <h1>Add</h1>
+      
       <input 
       type='text'
       label='Name'
@@ -79,7 +81,7 @@ const Add = ({handeltoggle}) => {
       placeholder='Enter Categoey'
       />
         <button className='button' onClick={handleClick}>Add product</button>
-
+        </ul>
     </div>
   )
 }

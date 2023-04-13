@@ -30,7 +30,7 @@ const Update = ({handeltoggle}) => {
 
 
   return (
-    <div className="form">
+    <div className="update">
     <h1>Update</h1>
     <input 
     type='text'
